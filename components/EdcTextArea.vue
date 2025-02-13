@@ -18,13 +18,10 @@ import type { ITextAreaProps, TNullableString } from '~/types/type';
         placeholder: "",
         required: false,
         readOnly: false,
-        // error: "",
-        showCharacterCount: false,
         max: 1000,
         ellipseCount: 50,
-        showHelpText: false,
-        helpText: null,
         tabindex: undefined,
+
     });
     const inputContainerClass = computed(()=>({
         "relative rounded-md": true,
@@ -59,7 +56,7 @@ import type { ITextAreaProps, TNullableString } from '~/types/type';
 
 <template>
     <div :class="inputContainerClass">
-        <textarea class="border-2"
+        <textarea class="border-2 resize-none"
             v-model="modelValue"
             :rows="rows"
             :cols="cols"
@@ -71,6 +68,7 @@ import type { ITextAreaProps, TNullableString } from '~/types/type';
             @focus="handleFocus($event)"
         />
     </div>
+
 </template>
 
 

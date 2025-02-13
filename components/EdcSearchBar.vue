@@ -9,22 +9,18 @@ interface ISearch {
     elementId: string;
     inputClass?: string;
     placeholder?: string;
-    // isDebounce?: boolean;
     disabled?: boolean;
     label?: string;
     labelClass?: string;
-    // debounceDelay?: number;
     containerClass?: string;
 }
 
 const props = withDefaults(defineProps<ISearch>(),{
     inputClass: "",
     placeholder: "Search...",
-    // isDebounce: true,
     disabled: false,
     label: "",
     labelClass: "",
-    // debounceDelay: 500,
     containerClass: "",
 });
 const inputClasses = computed(() => ({

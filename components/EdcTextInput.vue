@@ -21,16 +21,12 @@ const props = withDefaults(defineProps<ITextInput>(), {
     disabled: false,
     readOnly:false,
     minLength: 0,
-    maxLength: 100,
+    maxLength: 30,
     disableDefaultValueSetter: false,
 });
 
 const getContainerClass = () => `container relative ${props.containerClass}`.trim();
 
-// const getInputId = computed(() => 
-//     props.elementId 
-//     || convertWordsIntoCasedWords(props.label || "", "camel case"),
-// );
 
 const getInputType = () => {
     let inputType = props.type;
@@ -65,7 +61,7 @@ function handleInput(){
     }
     emit("on-input",model.value);
 }
-// :id="getInputId()"
+
 </script>
 
 <template>
@@ -78,6 +74,7 @@ function handleInput(){
                 :placeholder="(!readOnly && placeholder) || ''"
                 :readonly="readOnly"
                 :tabindex="tabindex"
+                :maxLength="props.maxLength"
                 @focus="handleFocus($event)"
                 @input="handleInput"
                 @wheel="preventInpScroll($event)"

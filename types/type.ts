@@ -23,7 +23,8 @@ export interface ITextInput extends ITabIndex {
     required?: boolean;
     disabled?: boolean;
     minLength?: number;
-    maxLength?: number;  
+    maxLength?: number; 
+    readOnly?: boolean; 
     disableDefaultValueSetter?: boolean;
 }
 
@@ -44,4 +45,53 @@ export interface ITextAreaProps extends ITabIndex {
     showCharacterCount?: boolean;
     max?: number;
     ellipseCount?: number;
+    readOnly?:boolean;
+    resize?:string;
+}
+
+
+
+export interface IRadioProps extends ITabIndex {
+    label?: string;
+    value: string;
+    elementId?: string;
+    containerClass?: string;
+    inputClass?: string;
+    labelClass?: string;
+    name: string;
+    checked?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    allowDeselect?: boolean;
+}
+
+// export const getArrayLength = (data: any[] | null) => (data ? data.length : 0);
+
+
+export const options = [
+    {
+        lable: "male",
+        value: "male"
+    },
+    {
+        lable: "female",
+        value: "female"
+    }
+];
+
+
+
+
+export interface ICheckboxProps extends ITabIndex {
+    label?: string;
+    value?: string;
+    elementId?: string;
+    containerClass?: string;
+    inputClass?: string;
+    labelClass?: string;
+    name: string;
+    checked?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    setCheckedToModel?: boolean;
 }
