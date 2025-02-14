@@ -175,6 +175,10 @@ const onTabChange = (tabIndex: number) => {
     </EdcTabView>
   </div>
 
+  <div>
+    <EdcBreadCrumb />
+  </div>
+
 </template>
 
 <style scoped></style>
