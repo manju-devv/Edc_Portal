@@ -50,6 +50,13 @@ const handleGoBack = () => {
   console.log("going back to the previous page...");
   alert("going to previous page");
 };
+
+const tabs = ref(["Home", "Profile", "Settings"]);
+const selectedTab = ref(0); 
+
+const onTabChange = (tabIndex: number) => {
+  selectedTab.value = tabIndex;
+};
 </script>
 
 <template>
@@ -154,6 +161,20 @@ const handleGoBack = () => {
       "
     />
   </div>
+  <div>
+    <UseEleHover />
+  </div>
+
+  <div>
+    <EdcTabView :tabs="tabs" :activeIndex="selectedTab" @on-tab-change="onTabChange">
+      <template #actions="{ label, active }">
+        <div v-if="active" class="p-4 border mt-2">
+          <p>Content for: <strong>{{ label }}</strong></p>
+        </div>
+      </template>
+    </EdcTabView>
+  </div>
+
 </template>
 
 <style scoped></style>
