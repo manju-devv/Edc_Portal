@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 
 const props = defineProps({
   options: {
@@ -11,10 +11,10 @@ const props = defineProps({
   },
 });
 
-const isOpen = ref(false);
+const isOpen = ref<boolean>(false);
 
 
-const selectedOption = ref("");
+const selectedOption = ref<string>("");
 
 
 function toggleDropdown() {
@@ -22,7 +22,7 @@ function toggleDropdown() {
 }
 
 
-function selectOption(option) {
+function selectOption(option:any) {
   selectedOption.value = option;
   isOpen.value = false; 
 }

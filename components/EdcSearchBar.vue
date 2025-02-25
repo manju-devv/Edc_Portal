@@ -33,7 +33,7 @@ const inputClasses = computed(() => ({
 
 <template>
     <div class="flex">
-        <img :src="searchLogo" alt="" class="w-[1.1rem] absolute left-[14rem] top-[19.6rem] cursor-pointer">
+        <img :src="searchLogo" alt="" class="w-[1.1rem] absolute left-[47%] top-[57%] cursor-pointer">
         <input class=" border-2 max-w-[250px] rounded-sm"
             v-model="model"
             type="text"

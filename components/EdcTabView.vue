@@ -48,7 +48,7 @@
     <div>
         <ul ref="tabListRef">
             <li v-for="(tabRow,index) in tabHeaders" :key="tabRow.id" 
-            :class="['inline-flex transition-all  px-[1rem] pb-[0.5rem] py-[0.5rem] mt-2 rounded-md whitespace-nowrap',tabRow.active?'bg-blue-300 text-gray-600 font-semibold transition-all ease':'']">
+            :class="['inline-flex transition-all  px-[1rem] pb-[0.5rem] py-[0.5rem] mt-2 rounded-md whitespace-nowrap',tabRow.active?'bg-green-300 text-gray-600 font-semibold transition-all ease':'']">
             <button @click="()=>handleChangeTab(index)">{{ tabRow.label }}</button>
             </li>
         </ul>

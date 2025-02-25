@@ -1,7 +1,7 @@
 
 
 export type TNullableNumber = null | number;
-export type TNullableString = null | number;
+export type TNullableString = null | string;
 
 export type TTextInput = "text" | "number" | "password";
 export type TButtonAction = () => void | Promise<void> | boolean | Promise<boolean>;

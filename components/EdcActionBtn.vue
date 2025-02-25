@@ -37,8 +37,8 @@
 
 <template>
     <button
-        class="button"
-        type="button"
+        class="button bg-green-300"
+        type="submit"
         :tabindex="tabindex"
         @click="async () => await handleClick()"
     >
@@ -50,12 +50,11 @@
 <style scoped>
     .button{
         display: flex;
-        background-color: aqua;
         padding: 10px 25px;
         margin-bottom: 2rem;
         border-radius: 5px;
         color: rgb(54, 51, 51);
-        border: 1px solid gray;
+        border: none;
         font-weight: 500;
     }
 </style>

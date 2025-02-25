@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { ICheckboxProps } from "~/types/type";
 
-const modelValue = defineModel<boolean>({
-  default: false,
+const modelValue = defineModel<string[]>({
+  default: [],
 });
 
 const props = withDefaults(defineProps<ICheckboxProps>(), {
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<ICheckboxProps>(), {
   tabindex: undefined,
 });
 const emit = defineEmits<{
-  "on-change":[selected: boolean]
+  "on-change":[selected: string[]]
 }>();
 
 function onChange(){
@@ -32,8 +32,9 @@ function onChange(){
 </script>
 
 <template>
-  <div>
-    <input
+  <div class="flex gap-2 ">
+    <input class="cursor-pointer accent-green-300 w-[0.9rem]"
+      :id="name"
       v-model="modelValue"
       :value="value"
       type="checkbox"
@@ -44,7 +45,11 @@ function onChange(){
       @click.stop
       @change="onChange()"
     />
+    <label :for="name" class="cursor-pointer">{{ name }}</label>
   </div>
 </template>
 
-<style></style>
+
+<style scoped>
+
+</style>

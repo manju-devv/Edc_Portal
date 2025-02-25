@@ -8,6 +8,7 @@ const isInpFocused = ref<boolean>(false);
 const model = defineModel<TNullableNumber | TNullableString>({
     default: null,
 });
+console.log(model.value);
 const props = withDefaults(defineProps<ITextInput>(), {
     label: "",
     elementId: "",
@@ -21,11 +22,12 @@ const props = withDefaults(defineProps<ITextInput>(), {
     disabled: false,
     readOnly:false,
     minLength: 0,
-    maxLength: 30,
+    maxLength: 15,
     disableDefaultValueSetter: false,
 });
 
-const getContainerClass = () => `container relative ${props.containerClass}`.trim();
+
+const getContainerClass = () => ` ${props.containerClass}`.trim();
 
 
 const getInputType = () => {
@@ -35,9 +37,9 @@ const getInputType = () => {
 };
 
 const inputClass = computed(()=>({
-    "input-value form-input text-ellipsis": true,
+    "": true,
     [props.inputClass]: props.inputClass,
-    "pointer-events-none readonly-form-input": props.readOnly,
+    "": props.readOnly,
 }));
 
 const emit = defineEmits<{
@@ -48,7 +50,6 @@ const emit = defineEmits<{
 function handleFocus(event:FocusEvent){
     isInpFocused.value = true;
     emit("on-focus",event);
-    console.log("i am focussed",event);
 }
 function preventInpScroll(event:WheelEvent){
     console.log("scroll");
@@ -59,6 +60,7 @@ function handleInput(){
     if(!props.disableDefaultValueSetter && (model.value === null || model.value === '')){
         model.value = null;
     }
+
     emit("on-input",model.value);
 }
 
@@ -67,10 +69,10 @@ function handleInput(){
 <template>
     <div :class="getContainerClass()">
         <div>
-            <input class="border-2 rounded-md"
+            <input
                 v-model="model"
                 :type="getInputType()"
-                :class="inputClass"
+                :class="[inputClass,'h-[2.3rem] w-[15rem] px-4 ',typeof model === 'string' && model.length === 15 ?'border-2 border-red-500 outline-none rounded-sm':'border-2 border-zinc-400 rounded-sm outline-none']"
                 :placeholder="(!readOnly && placeholder) || ''"
                 :readonly="readOnly"
                 :tabindex="tabindex"

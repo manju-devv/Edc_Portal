@@ -30,14 +30,15 @@ function onChange(event: Event) {
 function handleDeselect(event: Event) {
     const selectedValue = (event.currentTarget as HTMLInputElement).value;
     if (props.allowDeselect && modelValue.value === selectedValue) modelValue.value = null;
-}
+}   
 
 </script>
 
 
 <template>
-    <div>
-        <input
+    <div class="flex gap-[1rem]">  
+        <input class="cursor-pointer accent-green-300 "
+            :id="name"
             v-model="modelValue"
             :value="value"
             type="radio"
@@ -47,13 +48,13 @@ function handleDeselect(event: Event) {
             @change="onChange($event)"
             @click="handleDeselect($event)"
             />
+            <label :for="name" class="cursor-pointer" >{{ value }}</label>
     </div>
+    
 </template>
 
 
-<!-- :id="getInputId()"
-:disabled="isElementDisabled(disabled)" -->
-<!-- :class="inputClasses" -->
+
 <style scoped>
 
 </style>
